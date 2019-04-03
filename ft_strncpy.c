@@ -6,27 +6,23 @@
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/27 21:01:59 by cromo             #+#    #+#             */
-/*   Updated: 2019/03/07 20:58:43 by cromo            ###   ########.fr       */
+/*   Updated: 2019/03/29 15:45:33 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 char	*ft_strncpy(char * dst, const char * src, size_t len)
 {
-	unsigned int i;
+	size_t i;
 
 	i = 0;
-	while (src[i] != '\0')
+	while (i < len && src[i] != 0 && dst[i] != 0)
 	{
 		dst[i] = src[i];
 		++i;
 	}
-	if (i < len && src[i] != '\0')
-	{
-		while (dst[i] != '\0')
-		{
-			dst[i++] = '\0';
-		}	
-	//Assuming code allocates extra memory into heap for dst
-	}
+	while (i < len)
+		dst[i++] = 0;
 	return (dst);
 }

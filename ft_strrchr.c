@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/27 17:10:06 by cromo             #+#    #+#             */
-/*   Updated: 2019/03/27 21:03:53 by cromo            ###   ########.fr       */
+/*   Created: 2019/04/02 16:24:07 by cromo             #+#    #+#             */
+/*   Updated: 2019/04/02 20:24:58 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
-{
-	char *copy;
-	size_t i;
+/*
+ * Locates the last occurrence of char value c in the string s and return a 
+ * pointer to its location. Includes NULL terminator. Returns NULL if c
+ * not found.
+ */
 
-	i = 0;
-	while (s1[i] != '\0')
-		i++;
-	if (!(copy = (char*)malloc(sizeof(char) * i + 1)))
-		return (NULL);
-	i = 0;
-	while(s1[i])
+
+char	*ft_strrchr(const char *s, int c)
+{
+	int i;
+
+	i = (int)ft_strlen(s);
+	while(i >= 0)
 	{
-		copy[i] = s1[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
+		if(s[i] == (char)c)
+			return ((char *)&s[i]);
+		--i;
+	}	
+	return (NULL);
 }
+
+

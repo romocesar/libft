@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/27 17:10:06 by cromo             #+#    #+#             */
-/*   Updated: 2019/03/27 21:03:53 by cromo            ###   ########.fr       */
+/*   Created: 2019/03/27 00:15:50 by cromo             #+#    #+#             */
+/*   Updated: 2019/03/27 01:25:38 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char *copy;
 	size_t i;
-
+	const unsigned char *cpys;
+	
 	i = 0;
-	while (s1[i] != '\0')
-		i++;
-	if (!(copy = (char*)malloc(sizeof(char) * i + 1)))
-		return (NULL);
-	i = 0;
-	while(s1[i])
+	cpys = (const unsigned char*)s;
+	while (i < n)
 	{
-		copy[i] = s1[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
+		if(cpys[i] == (unsigned char)c)
+			return((void*)&cpys[i]);
+		++i;
+	}	
+	return(NULL);
 }

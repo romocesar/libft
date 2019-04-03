@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/27 17:10:06 by cromo             #+#    #+#             */
-/*   Updated: 2019/03/27 21:03:53 by cromo            ###   ########.fr       */
+/*   Created: 2019/03/25 22:12:23 by cromo             #+#    #+#             */
+/*   Updated: 2019/03/25 23:10:59 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *copy;
+	unsigned char *cpyd;
+	const unsigned char *cpys;
 	size_t i;
 
 	i = 0;
-	while (s1[i] != '\0')
-		i++;
-	if (!(copy = (char*)malloc(sizeof(char) * i + 1)))
-		return (NULL);
-	i = 0;
-	while(s1[i])
+	cpyd = dst;
+	cpys = src;
+	if (cpys < cpyd)
+		while (len-- > 0)
+			cpyd[len] = cpys[len];
+	else
 	{
-		copy[i] = s1[i];
-		i++;
+		while (i < len)
+		{
+			cpyd[i] = cpys[i];
+			i++;
+		}
 	}
-	copy[i] = '\0';
-	return (copy);
+	return (dst);
 }
