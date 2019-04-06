@@ -6,7 +6,7 @@
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/12 16:59:24 by cromo             #+#    #+#             */
-/*   Updated: 2019/04/02 20:59:02 by cromo            ###   ########.fr       */
+/*   Updated: 2019/04/06 15:39:07 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	while (i < n)
 	{
 		if ((cpyd[i] = cpys[i]) == (unsigned char)c)
-			return (&cpys[i + 1]);
+			return (&cpyd[i + 1]);
 		i++;
 	}
 	return (NULL);

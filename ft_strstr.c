@@ -6,7 +6,7 @@
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 21:00:46 by cromo             #+#    #+#             */
-/*   Updated: 2019/04/02 22:34:59 by cromo            ###   ########.fr       */
+/*   Updated: 2019/04/03 02:47:36 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,18 @@ char	*ft_strstr(const char *haystack, const char *needle)
 {
 	int i;
 	int j;
-	char *loc;
 
 	if (!(*needle))
 		return ((char *)haystack);
 	i = 0;
 	j = 0;
-	loc = needle;
 	while (haystack[i] != '\0')
 	{
-		if (haystack[i] == needle[j])
-		{
-			while (needle[j] != '\0')
-			{
-				++j;
-				if (haystack[i + j] != needle[j])
-					break;
-				else if (needle[j] 
-			}
-		}
+		while (haystack[i + j] == needle[j] && (needle[j]))
+			++j;
+		if (!(needle[j]))
+				return ((char *)&haystack[i]);
+		j = 0;
 		++i;
 	}	
 	return (NULL);

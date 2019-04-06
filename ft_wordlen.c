@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_wordlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/06 06:45:26 by cromo             #+#    #+#             */
-/*   Updated: 2019/04/06 06:45:46 by cromo            ###   ########.fr       */
+/*   Created: 2019/04/06 11:22:08 by cromo             #+#    #+#             */
+/*   Updated: 2019/04/06 11:23:01 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+size_t		ft_wordlen(const char *s, char c)
 {
-	int		i;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
-	if (s && f)
-		while (s[i])
-			f(&s[i++]);
+	len = 0;
+	while (s[i] == c)
+		i += 1;
+	while (s[i] != c && s[i++])
+		len += 1;
+	return (len);
 }
 

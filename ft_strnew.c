@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/06 06:45:26 by cromo             #+#    #+#             */
-/*   Updated: 2019/04/06 06:45:46 by cromo            ###   ########.fr       */
+/*   Created: 2019/04/06 06:27:04 by cromo             #+#    #+#             */
+/*   Updated: 2019/04/06 06:30:14 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+char	*ft_strnew(size_t size)
 {
-	int		i;
+	char	*str;
 
-	i = 0;
-	if (s && f)
-		while (s[i])
-			f(&s[i++]);
+	if(!(str = (char *)malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	str[size] = 0;
+	while (size--)
+		str[size] = 0;
+	return (str);
 }
 

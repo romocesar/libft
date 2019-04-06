@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/06 06:45:26 by cromo             #+#    #+#             */
-/*   Updated: 2019/04/06 06:45:46 by cromo            ###   ########.fr       */
+/*   Created: 2019/04/06 15:10:03 by cromo             #+#    #+#             */
+/*   Updated: 2019/04/06 15:10:17 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
+	char	c;
 
-	i = 0;
-	if (s && f)
-		while (s[i])
-			f(&s[i++]);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		n = -n;
+		write(fd, "-", 1);
+	}
+	if (n < 10)
+	{
+		c = n + '0';
+		write(fd, &c, 1);
+	}
+	else
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
+	}
 }
-

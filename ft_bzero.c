@@ -6,7 +6,7 @@
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 19:05:37 by cromo             #+#    #+#             */
-/*   Updated: 2019/03/25 21:20:40 by cromo            ###   ########.fr       */
+/*   Updated: 2019/04/06 15:45:27 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char *c;
 	int i;
 
-	c = s;
-	if (!(*c))
-		return;
+	c = (unsigned char *)s;
 	i = 0;
 	while(i < (int)n)
 	{
-		c[i++] = '\0';
+		c[i++] = 0;
 	}
 }

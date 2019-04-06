@@ -6,13 +6,13 @@
 /*   By: cromo <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 00:28:50 by cromo             #+#    #+#             */
-/*   Updated: 2019/03/12 19:45:48 by cromo            ###   ########.fr       */
+/*   Updated: 2019/04/03 03:56:41 by cromo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+int		ft_isalpha(int c)
 {
 	int count;
 
